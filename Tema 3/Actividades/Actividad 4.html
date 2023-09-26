@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        var sueldo=Number(prompt("Dime tu salario:"));
+        var antiguedad=Number(prompt("Dime tu antigüedad"));
+        var result;
+
+        if (sueldo<750 && antiguedad>=10){
+            sueldo*=1.10;
+            alert("Sueldo:" + sueldo);
+        }else if (sueldo>=750 && antiguedad>=10){
+            sueldo*=1.05;
+            alert("Sueldo:" + sueldo);
+        }else{
+            alert("Sueldo:" + sueldo);
+        }
+    </script>
+    
+</body>
+</html>

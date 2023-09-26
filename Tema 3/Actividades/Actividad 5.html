@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        var num1=Number(prompt("Dime un numero"));
+        var num2=Number(prompt("Dime otro numero"));
+        var num3=Number(prompt("Dime un numero mas"));
+        var orden="";
+
+        if ((num1 > num2 && num1 > num3) && (num2 > num3)) {
+            orden = num1 + "," + num2 + "," + num3;
+
+        } else if ((num1 > num2 && num1 > num3) && (num3 > num2)) {
+            orden = num1 + "," + num3 + "," + num2;
+
+        } else if ((num2 > num1 && num2 > num3) && (num3 > num1)) {
+
+            orden = num2 + "," + num3 + "," + num1;
+
+        } else if ((num2 > num1 && num2 > num3) && (num1 > num3)) {
+            orden = num2 + "," + num1 + "," + num3;
+
+        } else if((num3 > num1 && num3 > num2) && (num1 > num2)){
+            
+            orden = num3 + "," + num1 + "," + num2;
+
+        }  else if ((num3 > num1 && num3 > num2) && (num2 > num1)) {
+
+            orden = num3 + "," + num2 + "," + num1;
+
+        }
+
+        alert("El orden de mayor a menor es:" + orden);
+    </script>
+    
+</body>
+</html>

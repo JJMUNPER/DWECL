@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+
+        var a = Number(prompt("Introduce el numero a"));
+        var b = Number(prompt("Introduce el numero b"));
+        var c = Number(prompt("Introduce el numero c"));
+
+        var solucion1;
+        var solucion2;
+
+
+        var solucRaiz = Math.sqrt((b*b)-(4*a*c));
+
+        if (isNaN(solucRaiz)){
+            alert("No se puede resolver, raiz negativa");
+        } else{
+            solucion1 = (-b+solucRaiz)/(2*a);
+            solucion2 = (-b-solucRaiz)/(2*a);
+
+            alert("Los resultados:\n"+"x1: "+solucion1+"\n"+"x2: "+solucion2);
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
