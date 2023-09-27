@@ -1,30 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <script>
+      //Introduccion de los coeficientes numericos a, b, c
+      var a = Number(prompt("Introduce el numero a"));
+      var b = Number(prompt("Introduce el numero b"));
+      var c = Number(prompt("Introduce el numero c"));
 
-        var a = Number(prompt("Introduce el numero a"));
-        var b = Number(prompt("Introduce el numero b"));
-        var c = Number(prompt("Introduce el numero c"));
-
+      //Control de errores para que los valores introducidos sean numericos
+      if (isNaN(a) || isNaN(b) || isNaN(c)) {
+        alert("Por favor, introduce números válidos para a, b y c.");
+      } else{
+        // Variables para la solución
         var solucion1;
         var solucion2;
+      }
 
 
-        var solucRaiz = Math.sqrt((b*b)-(4*a*c));
+      //Calculo de la ecuacion sin el coeficiente
+      var solucRaiz = Math.sqrt(b * b - 4 * a * c);
+      //}
 
-        if (isNaN(solucRaiz)){
-            alert("No se puede resolver, raiz negativa");
-        } else{
-            solucion1 = (-b+solucRaiz)/(2*a);
-            solucion2 = (-b-solucRaiz)/(2*a);
+      //Condicion antierrores para evitar que a=0 y la raiz sea positiva
+      if (solucRaiz<=0 || a===0) {
+        alert(
+          "No se puede resolver porque la raiz negativa o el coficiente a=0"
+        );
 
-            alert("Los resultados:\n"+"x1: "+solucion1+"\n"+"x2: "+solucion2);
-        }
+        //Si no es negativa calculara los dos coeficientes
+      } else {
+        solucion1 = (-b + solucRaiz) / (2 * a);
+        solucion2 = (-b - solucRaiz) / (2 * a);
+
+        alert(
+          "Los resultados:\n" + "x1: " + solucion1 + "\n" + "x2: " + solucion2
+        );
+      };
 
     </script>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body></body>
 </html>

@@ -3,28 +3,42 @@
 <head>
     <script>
 
+        //El usuario introduce un numero
         var num=Number(prompt("Introduce un numero"));
+
+        //Esta variable guarda una copia del numero original
         var saveNum=num;
+
+        //Este sera el numero basico por el que se haran las divisiones para ver si es primo o no
         var basicPrimo=2;
+
+        //Cadena vacia para almacenar la solucion
         var sol="";
 
+        //Bucle while que se ejecuta hasta que num sea 1
         while(num!=1){
             
+            //Comprueba que sea divisible num entre el numero basico para dividir
             if (num%basicPrimo==0){
 
                 num=num/basicPrimo;
 
+                //Si el número resultante es 1, se agrega el divisor primo a la solución
                 if (num==1){
                     sol+=basicPrimo;
+
+                //Si no es 1, se agrega el divisor primo
                 } else {
                     sol+=basicPrimo+"*";
                 }
+                
+            //Si el número no es divisible por el divisor primo actual, se incrementa el divisor primo
             }else{
                 basicPrimo++;
             }
         }
 
-        alert("Los primos de " + saveNum + " son: " + sol)
+        alert("Los primos de " + saveNum + " son: " + sol);
 
 
     </script>
