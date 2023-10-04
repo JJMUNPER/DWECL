@@ -1,44 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <script>
+      var valores = (() => {
+        var figura;
+        var ladoC;
+        var radioE;
+        var radioC;
+        var alturaC;
 
-        var valores = (function(){
+        return (sg, fig, lC, rE, rC, aC) => {
+          switch (sg) {
+            case 1:
+              figura = fig;
+              ladoC = lC;
+              radioE = rE;
+              radioC = rC;
+              alturaC = aC;
+              console.log('Valores actualizados:', figura, ladoC, radioE, radioC, alturaC);
+              break;
+            case 2:
+            console.log('Obteniendo figura:', figura);
+              return figura;
+              break;
+            case 3:
+            console.log('Obteniendo ladoC:', ladoC);
+              return ladoC;
+              break;
+            case 4:
+            console.log('Obteniendo radioE:', radioE);
+              return radioE;
+              break;
+            case 5:
+            console.log('Obteniendo radioC:', radioC);
+              return radioC;
+              break;
+            case 6:
+            console.log('Obteniendo alturaC:', alturaC);
+              return alturaC;
+              break;
+          }
+        };
+      })();
+      function figura() {
+        let fig;
+        fig = Number(
+          prompt("Elige una opcion: \n 1.Cubo \n 2.Esfera \n 3. cilindro")
+        );
 
-            var figura;
-            var ladoCuad;
-            var radioEsfe;
-            var radioCili;
-            var alturaCili;
-
-            switch {
-
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-
-
-            }
-
-
-
-        })();
-
-        function figura() {
-            let fig;
-            
+        valores(1, fig);
+        console.log('Figura elegida:', fig);
+      }
+      function medidas() {
+        let ladoC;
+        let radioE;
+        let radioC;
+        let alturaC;
+        let figura = valores(2);
+        switch (figura) {
+          case undefined:
+            alert("Debes elegir una figura");
+            break;
+          case 1:
+            ladoC = Number(prompt("Dime el lado del cubo en cm"));
+            valores(1, figura, ladoC);
+            console.log('Lado del cubo:', ladoC);
+            break;
+          case 2:
+            radioE = Number(prompt("Dime el radio de la esfera en cm"));
+            valores(1, figura, 0, radioE);
+            console.log('Radio de la esfera:', radioE);
+            break;
+          case 3:
+            (radioC = Number(prompt("Dime el radio del cilindo en cm"))),
+              (alturaC = Number(prompt("Dime la altura de el cilindro en cm")));
+            valores(1, figura, 0, 0, radioC, alturaC);
+            console.log('Radio del cilindro:', radioC);
+            console.log('Altura del cilindro:', alturaC);
+            break;
         }
+      }
+      function calcularVol() {
+        let volCubo;
+        let volEsfera;
+        let volCilindro;
+        let figura = valores(2);
+        switch (figura) {
+          case undefined:
+            alert("Debes elegir una figura");
+            break;
+          case 1:
+            let ladoC = valores(3);
+            if (ladoC == undefined) {
+              return alert("Debes añadir medidas al cubo");
+            }
+            volCubo = ladoC * ladoC * ladoC;
+            alert("El volumen del cubo es: " + volCubo + " cm3");
+            break;
+          case 2:
+            let radioE = valores(4);
+            if (radioE == undefined) {
+              return alert("Debes añadir medidas a la esfera");
+            }
+            volEsfera = (4 / 3) * Math.PI * (radioE * radioE * radioE);
+            alert("El volumen de la esfera es: " + volEsfera + " cm3");
+            break;
+          case 3:
+            let radioC = valores(5);
+            let alturaC = valores(6);
+            if (radioC == undefined || alturaC == undefined) {
+              return alert("Debes añadir medidas al cilindro");
+            }
+            volCilindro = Math.PI * (radioC * radioC) * alturaC;
+            alert("El volumen del cilindro es: " + volCilindro + " cm3");
+            break;
+        }
+      }
+      function calcularArea() {
+        let areaCubo;
+        let areaEsfera;
+        let areaCilindro;
+        let figura = valores(2);
+        switch (figura) {
+          case undefined:
+            alert("Debes elegir una figura");
+            break;
+          case 1:
+            let ladoC = valores(3);
+            if (ladoC == undefined) {
+              return alert("Debes añadir medidas al cubo");
+            }
+            areaCubo = 6 * (ladoC * ladoC);
+            alert("El área del cubo es: " + areaCubo + " cm2");
+            break;
+          case 2:
+            let radioE = valores(4);
+            if (radioE == undefined) {
+              return alert("Debes añadir medidas a la esfera");
+            }
+            areaEsfera = 4 * Math.PI * (radioE * radioE);
+            alert("El área de la esfera es: " + areaEsfera + " cm2");
+            break;
+          case 3:
+            let radioC = valores(5);
+            let alturaC = valores(6);
+            if (radioC == undefined || alturaC == undefined) {
+              return alert("Debes añadir medidas al cilindro");
+            }
+            areaCilindro = 2 * Math.PI * radioC * (radioC + alturaC);
+            alert("El área de un cilindro es: " + areaCilindro + " cm2");
+            break;
+        }
+      }
 
+      function menu() {
+        let menuEleccion;
+        while (
+          (menuEleccion = Number(
+            prompt(
+              "Elige una opcion: \n 1.Elija entre cubo, esfera o cilindro \n 2.Introduzca los valores de las variables \n 3.Calculo del volumen. \n 4.Calculo de area\n 5.Finalizar"
+            )
+          )) != 5
+        ) {
+          if (menuEleccion == 0) {
+            alert("Elige una opción");
+          }
+          switch (menuEleccion) {
+            case 1:
+              figura();
+              break;
+            case 2:
+              medidas();
+              break;
+            case 3:
+              calcularVol();
+              break;
+            case 4:
+              calcularArea();
+              break;
+          }
+        }
+      }
 
-
+      menu();
     </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body></body>
 </html>
