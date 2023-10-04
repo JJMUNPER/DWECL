@@ -2,6 +2,9 @@
 <html lang="en">
   <head>
     <script>
+
+      //Funcion para almacenar los valores (variables internas)
+
       var valores = (() => {
         var figura;
         var ladoC;
@@ -42,6 +45,9 @@
           }
         };
       })();
+
+      //Funcion para seleccionar la figura
+
       function figura() {
         let fig;
         fig = Number(
@@ -51,6 +57,9 @@
         valores(1, fig);
         console.log('Figura elegida:', fig);
       }
+
+      //Funcion para ingresar los datos de la figura
+
       function medidas() {
         let ladoC;
         let radioE;
@@ -80,6 +89,9 @@
             break;
         }
       }
+
+      //Funcion para calcular el volumen
+
       function calcularVol() {
         let volCubo;
         let volEsfera;
@@ -116,6 +128,9 @@
             break;
         }
       }
+
+      //Funcion para calcular el area
+
       function calcularArea() {
         let areaCubo;
         let areaEsfera;
@@ -152,6 +167,8 @@
             break;
         }
       }
+
+      //Funcion principal para el menú y controla el flujo del programa
 
       function menu() {
         let menuEleccion;
